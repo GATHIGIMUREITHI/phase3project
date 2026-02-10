@@ -412,10 +412,4 @@ print(f"High-risk customers: {len(high_risk)}")
 
 ---
 
-<p align="center">
-  <strong>⭐ If you found this project helpful, please consider giving it a star! ⭐</strong>
-</p>
 
-<p align="center">
-  Made with ❤️ and 🐍 by Jeffrey Gathigi
-</p>
