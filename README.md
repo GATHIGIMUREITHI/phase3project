@@ -1,272 +1,421 @@
+# 📞 Telecom Customer Churn Prediction
 
-# Phase 3 Project Description
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
-Congratulations! You've made it through another _intense_ module, and now you're ready to show off your newfound Machine Learning skills
+A machine learning project to predict customer churn for SyriaTel Telecommunications Company, enabling proactive retention strategies and reducing customer attrition.
 
-All that remains in Phase 3 is to put your new skills to use with another large project.
+![Churn Prediction](https://img.shields.io/badge/Churn%20Rate-14.5%25-red)
+![Model Accuracy](https://img.shields.io/badge/Best%20Model%20Accuracy-96.9%25-success)
+![Recall Score](https://img.shields.io/badge/Recall-78.4%25-important)
 
-In this project description, we will cover:
+---
 
-* Project Overview
-* Deliverables
-* Grading
-* Getting Started
+## 📋 Table of Contents
 
-## Project Overview
+- [Project Overview](#project-overview)
+- [Business Problem](#business-problem)
+- [Dataset](#dataset)
+- [Installation](#installation)
+- [Project Structure](#project-structure)
+- [Methodology](#methodology)
+- [Key Findings](#key-findings)
+- [Model Performance](#model-performance)
+- [Business Recommendations](#business-recommendations)
+- [Usage](#usage)
+- [Future Work](#future-work)
+- [Contributors](#contributors)
+- [License](#license)
 
-For this project, you will engage in the full data science process from start to finish, solving a **classification** problem using a **dataset of your choice**.
+---
 
-### Business Problem and Data
+## 🎯 Project Overview
 
-It is up to you to define a stakeholder, a business problem, and you are also responsible for choosing a dataset.
+Customer churn is a critical challenge in the telecommunications industry, where acquiring new customers costs **5-25 times more** than retaining existing ones. This project builds a predictive model to:
 
-For complete details, see [Phase 3 Project - Choosing a Dataset](https://github.com/learn-co-curriculum/dsc-phase-3-choosing-a-dataset).
+- ✅ Identify customers at high risk of churning before they leave
+- ✅ Understand key factors contributing to customer churn
+- ✅ Develop targeted retention strategies to reduce churn rate
+- ✅ Provide actionable insights for business stakeholders
 
-### Key Points
+**Stakeholder**: Executive Leadership Team at SyriaTel Telecommunications Company
 
-#### Classification
+---
 
-Recall the distinction between *classification* and *regression* models:
+## 💼 Business Problem
 
- * Classification is used when the target variable is a *category*
- * Regression is used when the target variable is a *numeric value*
+SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 
-(Categorical data may be represented in the data as numbers, e.g. 0 and 1, but they are not truly numeric values. If you're unsure, ask yourself "is a target value of 1 _one more than_ a target value of 0"; if it is one more, that is a regression target, if not, that is a classification target.)
+1. **Predict** which customers are likely to churn
+2. **Identify** the strongest predictors of churn behavior
+3. **Segment** customers by risk level for targeted interventions
+4. **Optimize** retention strategies to maximize ROI
 
-You will have additional opportunities to work on regression problems in later phases, but **for this project, you must be modeling a classification problem**.
+### Success Criteria
 
-#### Findings and Recommendations
+- **Primary Metric**: Achieve **recall ≥ 70%** (catch most customers who will churn)
+- **Rationale**: Missing a churning customer is more costly than false alarms
+- **Business Impact**: Enable proactive retention campaigns with positive ROI
 
-In the previous two projects, the framing was primarily *descriptive* and *inferential*, meaning that you were trying to understand the distributions of variables and the relationship between them. For this project you can still use these techniques, but make sure you are also using a ***predictive*** approach.
+---
 
-A predictive *finding* might include:
+## 📊 Dataset
 
-* How well your model is able to predict the target
-* What features are most important to your model
+**Source**: SyriaTel Customer Churn Dataset  
+**Size**: 3,333 customers × 21 features  
+**Target Variable**: `churn` (True/False)
 
-A predictive *recommendation* might include:
+### Key Features
 
-* The contexts/situations where the predictions made by your model would and would not be useful for your stakeholder and business problem
-* Suggestions for how the business might modify certain input variables to achieve certain target results
+| Category | Features |
+|----------|----------|
+| **Demographics** | State, area code, account length |
+| **Service Plans** | International plan, voice mail plan |
+| **Usage Patterns** | Day/evening/night/international minutes, calls, charges |
+| **Customer Service** | Number of customer service calls |
 
-#### Iterative Approach to Modeling
+### Class Distribution
 
-You should demonstrate an iterative approach to modeling. This means that you must build multiple models. Begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs in the notebook discussing your final model.
+- **Not Churned**: 2,850 customers (85.5%)
+- **Churned**: 483 customers (14.5%)
 
-With the additional techniques you have learned in Phase 3, be sure to explore:
+---
 
-1. Model features and preprocessing approaches
-2. Different kinds of models (logistic regression, decision trees, etc.)
-3. Different model hyperparameters
+## 🛠️ Installation
+
+### Prerequisites
 
-At minimum you must build two models:
+- Python 3.8 or higher
+- Jupyter Notebook or JupyterLab
 
-* A simple, interpretable baseline model (logistic regression or single decision tree)
-* A version of the simple model with tuned hyperparameters
+### Setup
 
-#### Classification Metrics
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/GATHIGIMUREITHI/telecom-churn-prediction.git
+   cd telecom-churn-prediction
+   ```
 
-**You must choose appropriate classification metrics and use them to evaluate your models.** Choosing the right classification metrics is a key data science skill, and should be informed by data exploration and the business problem itself. You must then use this metric to evaluate your model performance using both training and testing data.
+2. **Create a virtual environment** (recommended)
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Launch Jupyter Notebook**
+   ```bash
+   jupyter notebook
+   ```
+
+### Required Libraries
+
+```txt
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+scikit-learn>=1.0.0
+jupyter>=1.0.0
+```
+
+---
+
+## 📁 Project Structure
+
+```
+telecom-churn-prediction/
+│
+├── data/
+│   └── SyriaTelCustomerChurn.csv          # Raw dataset
+│
+├── notebooks/
+│   └── churn_prediction_analysis.ipynb    # Main analysis notebook
+│
+├── images/                                 # Generated visualizations
+│   ├── confusion_matrix_*.png
+│   ├── roc_curve_*.png
+│   ├── feature_importance_*.png
+│   └── model_comparison.png
+│
+├── models/                                 # Saved model files (optional)
+│
+├── README.md                               # Project documentation
+├── requirements.txt                        # Python dependencies
+└── LICENSE                                 # License file
+```
+
+---
+
+## 🔬 Methodology
+
+### 1. **Business & Data Understanding**
+   - Defined business problem and success criteria
+   - Explored dataset structure and features
+   - Analyzed target variable distribution
+
+### 2. **Exploratory Data Analysis (EDA)**
+   - Investigated churn patterns across features
+   - Identified key correlations with churn
+   - Visualized customer segments and behaviors
+
+### 3. **Data Preparation**
+   - **Feature Engineering**:
+     - Created aggregate usage features (total minutes, calls, charges)
+     - Calculated usage ratios (international usage ratio)
+     - Generated risk flags (high customer service calls)
+     - Derived revenue metrics (revenue per day, avg call duration)
+   - **Encoding**: Binary encoding for yes/no features, one-hot encoding for categorical variables
+   - **Scaling**: Standardized numerical features using StandardScaler
+   - **Train-Test Split**: 80/20 split with stratification
+
+### 4. **Modeling**
+
+Three classification models were trained and evaluated:
+
+| Model | Description | Key Strength |
+|-------|-------------|--------------|
+| **Logistic Regression** | Baseline linear model | High interpretability |
+| **Decision Tree** | Non-linear rule-based classifier | Captures complex patterns |
+| **Random Forest** | Ensemble of decision trees | Robust and accurate |
+
+### 5. **Evaluation**
+
+Models were evaluated using:
+- **Accuracy**: Overall correctness
+- **Precision**: Accuracy of churn predictions
+- **Recall**: Ability to catch churners (priority metric)
+- **F1-Score**: Harmonic mean of precision and recall
+- **ROC-AUC**: Discrimination capability
+
+---
+
+## 🔍 Key Findings
+
+### Top Churn Predictors
+
+1. **Customer Service Calls** 📞
+   - Customers with **4+ calls** have significantly higher churn rates
+   - Indicates unresolved issues or dissatisfaction
+
+2. **International Plan** 🌍
+   - Customers with international plans show distinct churn patterns
+   - Suggests pricing or value perception issues
+
+3. **Total Charges** 💰
+   - High daily charges correlate with churn
+   - Potential "bill shock" or competitor pricing advantages
+
+4. **Voice Mail Plan** ✉️
+   - Customers with voice mail plans have **lower churn rates**
+   - Value-added services increase retention
+
+5. **Usage Patterns** 📊
+   - International usage ratio is a strong predictor
+   - Extreme usage (very high or very low) indicates risk
+
+### Customer Insights
+
+- **High-Risk Segment**: International plan holders with high service calls
+- **Low-Risk Segment**: Long-tenure customers with voice mail plans
+- **Churn Trigger**: 4+ customer service calls is a critical threshold
+
+---
+
+## 📈 Model Performance
+
+### Model Comparison
+
+| Model | Test Accuracy | Test Precision | **Test Recall** | Test F1-Score | Test ROC-AUC |
+|-------|---------------|----------------|-----------------|---------------|--------------|
+| Logistic Regression | 85.2% | 47.9% | **23.7%** | 31.7% | 84.1% |
+| **Decision Tree** ⭐ | **96.9%** | **100.0%** | **78.4%** | **87.9%** | 87.3% |
+| Random Forest | 95.1% | 97.1% | 68.0% | 80.0% | 90.8% |
+
+### 🏆 Final Model Selection: **Decision Tree Classifier**
+
+**Rationale**:
+- ✅ Highest recall (78.4%) - catches most churners
+- ✅ Perfect precision (100%) - no false positives
+- ✅ High interpretability - easy to explain to stakeholders
+- ✅ Strong overall performance (96.9% accuracy)
+
+### Confusion Matrix (Decision Tree)
+
+```
+                Predicted
+              Not Churn  Churn
+Actual Not      570       0
+       Churn     21      76
+```
+
+**Interpretation**:
+- **True Negatives**: 570 (correctly identified loyal customers)
+- **False Positives**: 0 (no false alarms)
+- **False Negatives**: 21 (missed churners - 21.6% miss rate)
+- **True Positives**: 76 (correctly caught churners - 78.4% catch rate)
+
+---
+
+## 💡 Business Recommendations
+
+### 🚨 Immediate Actions (High-Risk Customers)
+
+#### 1. Customer Service Quality Improvement
+- **Finding**: Customers with 4+ service calls are at extreme risk
+- **Action**: 
+  - Implement first-call resolution training
+  - Create dedicated retention team for high-volume callers
+  - Root cause analysis for recurring issues
+- **Expected Impact**: 30-40% reduction in high-call-volume churn
+
+#### 2. International Plan Optimization
+- **Finding**: International plan holders have higher churn rates
+- **Action**:
+  - Review pricing and value proposition
+  - Offer bundled services or promotional rates
+  - Proactive outreach with usage optimization tips
+- **Expected Impact**: 20% reduction in international plan churn
+
+### 📊 Medium-Term Strategies (At-Risk Segments)
+
+#### 3. Usage-Based Interventions
+- Monitor customers with high charges (bill shock prevention)
+- Implement usage alerts and plan optimization recommendations
+- Offer customized plans based on individual usage patterns
+
+#### 4. Value-Added Services Promotion
+- Promote voice mail plans to customers without them
+- Bundle services to increase switching costs
+- Create loyalty programs based on tenure
+
+### 🎯 Predictive Retention Program
+
+#### 5. Risk-Based Scoring System
+- **High Risk** (>70% churn probability): Personal call + special offers
+- **Medium Risk** (40-70%): Automated email campaigns + value reminders
+- **Low Risk** (<40%): Standard satisfaction surveys
+
+#### 6. Financial Analysis Example
 
-## Deliverables
+With 1,000 predicted churners:
+- **Model Recall**: 78.4% → Identify 784 actual churners
+- **Retention Campaign Success**: 30% → Retain 235 customers
+- **Customer Lifetime Value**: $1,200 per customer
+- **Retention Cost**: $100 per offer
 
-There are three deliverables for this project:
+**ROI Calculation**:
+```
+Value Saved: 235 customers × $1,200 = $282,000
+Campaign Cost: 1,000 offers × $100 = $100,000
+Net Benefit: $182,000
+ROI: 182%
+```
 
-* A **non-technical presentation**
-* A **Jupyter Notebook**
-* A **GitHub repository**
+### 🔄 Continuous Improvement
 
-### Non-Technical Presentation
+- Deploy model for monthly customer scoring
+- A/B test retention strategies
+- Monitor model performance and retrain quarterly
+- Collect feedback from churned customers to improve model
 
-Recall that the non-technical presentation is a slide deck presenting your analysis to ***business stakeholders***, and should be presented live as well as submitted in PDF form on Canvas.
+---
 
-We recommend that you follow this structure, although the slide titles should be specific to your project:
+## 🚀 Usage
 
-1. Beginning
-    - Overview
-    - Business and Data Understanding
-2. Middle
-    - Modeling
-    - **Evaluation**
-3. End
-    - Recommendations
-    - Next Steps
-    - Thank you
+### Running the Analysis
 
-Make sure that your discussion of classification modeling is geared towards a non-technical audience! Assume that their prior knowledge of machine learning is minimal. You don't need to explain the details of your model implementations, but you should explain why classification is useful for the problem context. Make sure you translate any metrics or feature importances into their plain language implications.
+1. Open the main notebook:
+   ```bash
+   jupyter notebook notebooks/churn_prediction_analysis.ipynb
+   ```
 
-The graded elements for the non-technical presentation are the same as in [Phase 1](https://github.com/learn-co-curriculum/dsc-phase-1-project-v3#deliverables) and [Phase 2]((https://github.com/learn-co-curriculum/dsc-phase-2-project-v3#deliverables)).
+2. Run all cells sequentially to reproduce the analysis
 
-### Jupyter Notebook
+3. Generated visualizations will be saved to the `images/` directory
 
-Recall that the Jupyter Notebook is a notebook that uses Python and Markdown to present your analysis to a ***data science audience***. You will submit the notebook in PDF format on Canvas as well as in `.ipynb` format in your GitHub repository.
+### Using the Model for Predictions
 
-The graded elements for the Jupyter Notebook are:
+```python
+import pandas as pd
+import pickle
 
-* Business Understanding
-* Data Understanding
-* Data Preparation
-* Modeling
-* **Evaluation**
-* Code Quality
+# Load the trained model (if saved)
+# with open('models/decision_tree_model.pkl', 'rb') as f:
+#     model = pickle.load(f)
 
-### GitHub Repository
+# Load new customer data
+new_customers = pd.read_csv('new_customer_data.csv')
 
-Recall that the GitHub repository is the cloud-hosted directory containing all of your project files as well as their version history.
+# Preprocess (apply same transformations as training)
+# ... feature engineering, encoding, scaling ...
 
-The requirements are the same as in [Phase 1](https://github.com/learn-co-curriculum/dsc-phase-1-project-v3#github-repository) and [Phase 2](https://github.com/learn-co-curriculum/dsc-phase-2-project-v3#github-repository), except for the required sections in the `README.md`.
+# Make predictions
+churn_predictions = model.predict(new_customers_processed)
+churn_probabilities = model.predict_proba(new_customers_processed)[:, 1]
 
-For this project, the `README.md` file should contain:
+# Identify high-risk customers
+high_risk = new_customers[churn_probabilities > 0.7]
+print(f"High-risk customers: {len(high_risk)}")
+```
 
-* Overview
-* Business and Data Understanding
-  * Explain your stakeholder audience and dataset choice here
-* Modeling
-* **Evaluation**
-* Conclusion
+---
 
-Just like in Phase 1 and 2, the `README.md` file should be the bridge between your non technical presentation and the Jupyter Notebook. It should not contain the code used to develop your analysis, but should provide a more in-depth explanation of your methodology and analysis than what is described in your presentation slides.
+## 🔮 Future Work
 
-## Grading
+### Model Enhancements
+- [ ] Implement advanced ensemble methods (XGBoost, LightGBM)
+- [ ] Hyperparameter tuning with Bayesian optimization
+- [ ] Handle class imbalance with SMOTE or cost-sensitive learning
+- [ ] Time-series analysis of churn patterns
 
-***To pass this project, you must pass each project rubric objective.*** The project rubric objectives for Phase 3 are:
+### Feature Engineering
+- [ ] Customer lifetime value calculation
+- [ ] Behavioral trend features (increasing/decreasing usage)
+- [ ] Geographic and demographic enrichment
+- [ ] Competitor pricing and market data integration
 
-1. ML Communication
-2. Data Preparation for Machine Learning
-3. Nonparametric and Ensemble Modeling
+### Deployment
+- [ ] Create REST API for real-time predictions
+- [ ] Build interactive dashboard for stakeholders
+- [ ] Automate monthly scoring pipeline
+- [ ] Integrate with CRM system for automated alerts
 
-### ML Communication
+### Business Impact
+- [ ] A/B test retention campaigns
+- [ ] Track ROI of interventions
+- [ ] Conduct customer exit interviews
+- [ ] Benchmark against industry standards
 
-Recall that communication is one of the key data science "soft skills". In Phase 3, we are specifically focusing on ML Communication. We define ML Communication as:
+---
 
-> Communicate the **performance** of and **insights** generated by machine learning models to diverse audiences via writing, live presentation, and visualization
+## 👥 Contributors
 
-High-quality ML Communication includes rationale, results, limitations, and recommendations:
+**Jeffrey Gathigi** - *Data Scientist*  
+- GitHub: [@GATHIGIMUREITHI](https://github.com/GATHIGIMUREITHI)
+- Instructor: Brian Chacha
 
-* **Rationale:** Explaining why you are using machine learning rather than a simpler form of data analysis
-  * What about the problem or data is suitable for this form of analysis?
-  * For a data science audience, this includes your reasoning for the changes you applied while iterating between models.
-* **Results:** Describing the classification metrics
-  * You can report multiple metrics for a single model, but make sure that indicate a reason for which metrics you are using (and don't try to use all of them at once)
-  * For a business audience, make sure you connect any metrics to real-world implications. You do not need to get into the details of how the model works.
-  * For a data science audience, you don't need to explain what a metric is, but make sure you explain why you chose that particular one.
-* **Limitations:** Identifying the limitations and/or uncertainty present in your analysis
-  * Are there certain kinds of records where model performance is worse? If you used this model in production, what kinds of problems might that cause?
-  * In general, this should be more in-depth for a data science audience and more surface-level for a business audience.
-* **Recommendations:** Interpreting the model results and limitations in the context of the business problem
-  * What should stakeholders _do_ with this information?
 
-#### Exceeds Objective
 
-Communicates the rationale, results, limitations, and specific recommendations generated by a classification model
+---
 
-> See above for an extended explanation of these terms.
 
-#### Meets Objective (Passing Bar)
+---
 
-Successfully communicates model metrics without any major errors
+---
 
-> The minimum requirement is to communicate the _results_, meaning at least one overall model metric for your final model. See the Approaching Objective section for an explanation of what a "major error" means.
 
-#### Approaching Objective
+---
 
-Communicates model metrics with at least one major error
+<p align="center">
+  <strong>⭐ If you found this project helpful, please consider giving it a star! ⭐</strong>
+</p>
 
-> A major error means that some aspect of your explanation is fundamentally incorrect. For example, if you report a regression metric for a classification model, that would be a major error. Another example would be if you report the model's performance on the training data, rather than the model's performance on the test data.
-
-#### Does Not Meet Objective
-
-Does not communicate model metrics
-
-> It is not sufficient just to display the `classification_report` or confusion matrix for a given model. You need to focus on one or more specific metrics that are important for your business case.
-
-### Data Preparation for Machine Learning
-
-We define this objective as:
-
-> Applying appropriate preprocessing and feature engineering steps to tabular data in preparation for predictive modeling
-
-You still to ensure that you have a strategy for dealing with missing and non-numeric data.
-
-For the Phase 3 project, make sure you also consider:
-
-* **Preventing Data Leakage:** As you prepare data for modeling, make sure that you are correctly applying data preparation techniques so that your model's performance on test data realistically represents how it would perform on unseen data. For scikit-learn transformers specifically, ***make sure that you do not fit the transformer on the test data***. Instead, fit the transformer on the training data and use it to transform both the train and test data.
-* **Scaling:** If you are using a distance-based model algorithm (e.g. kNN or logistic regression with regularization), make sure you scale your data prior to fitting the model.
-
-Feature engineering is encouraged but not required for this project.
-
-#### Exceeds Objective
-
-Goes above and beyond with data preparation, such as feature engineering or using pipelines
-
-> Relevant examples of feature engineering will depend on your choice of dataset and business problem.
-
-> Pipelines are the best-practice approach to data preparation that avoids leakage, but they can get complicated very quickly. We therefore do not recommend that you use pipelines in your initial modeling approach, but rather that you refactor to use pipelines if you have time.
-
-#### Meets Objective (Passing Bar)
-
-Successfully prepares data for modeling, using a final holdout dataset that is transformed by (but not fitted on) transformers used to prepare training data AND scaling data when appropriate
-
-> See the descriptions above for explanations of how to use transformers and scaling.
-
-#### Approaching Objective
-
-Prepares some data successfully, but has at least one major error
-
-> A major error means that some aspect of your data preparation is fundamentally incorrect. Some examples of major errors include: (1) fitting transformers on test data, (2) not performing a train-test split, (3) not scaling data that is used in a distance-based model.
-
-#### Does Not Meet Objective
-
-Does not prepare data for modeling
-
-> This includes projects where data is partially prepared, but the model is unable to run.
-
-### Nonparametric and Ensemble Modeling
-
-Your project should consider the different types of models that have been covered in the course so far and whether they are appropriate or inappropriate for the dataset and business case you are working with.
-
-Your final model can still be a linear model (e.g. logistic regression) but you should explore at least one nonparametric model (e.g. decision tree) as well and articulate why one or the other is a better approach.
-
-#### Exceeds Objective
-
-Goes above and beyond in the modeling process, such as articulating why a given model type is best suited to the problem or correctly using scikit-learn models not covered in the curriculum
-
-> Another way you might go above and beyond would be to create custom Python classes, possibly inheriting from scikit-learn classes.
-
-#### Meets Objective (Passing Bar)
-
-Uses at least two types of scikit-learn model and tunes at least one hyperparameter in a justifiable way without any major errors
-
-> See the "Iterative Approach to Modeling" section above for a more-lengthy explanation.
-
-> Once again, ideally you would include written justifications for each model iteration, but at minimum the iterations must be _justifiable_.
-
-> For an explanation of "major errors", see the description under "Approaching Objective".
-
-#### Approaching Objective
-
-Builds multiple classification models with at least one major error
-
-> A major error means that some aspect of your modeling approach is fundamentally incorrect.
-
-> Once again, the number one major error to avoid is including the target as one of your features. If you are getting metrics that are "too good to be true", make sure that you removed the target (`y`) from your data before fitting the model.
-
-> Other examples of major errors include: using a numeric target value (since this is a classification project), not starting with a baseline model (e.g. proceeding directly to a Random Forest model), or not tuning hyperparameters in a justifiable way (e.g. reducing regularization on a model that is overfitting)
-
-#### Does Not Meet Objective
-
-Does not build multiple classification models
-
-## Getting Started
-
-Please start by reviewing the contents of this project description. If you have any questions, please ask your instructor ASAP.
-
-Once you are ready to begin the project, you will need to complete the Project Proposal.
-
-Recall that more information is available in [Phase 3 Project - Choosing a Dataset](https://github.com/learn-co-curriculum/dsc-phase-3-choosing-a-dataset).
-
-To get started with project development, create a new repository on GitHub. For this project, we recommend that you do not fork the template repository, but rather that you make a new repository from scratch, starting by going to [github.com/new](https://github.com/new).
-
-## Summary
-
-This project is an opportunity to expand your data science toolkit by evaluating, choosing, and working with new datasets. Spending time up front making sure you have a good dataset for a solvable problem will help avoid the major problems that can sometimes derail data science projects. You've got this!
+<p align="center">
+  Made with ❤️ and 🐍 by Jeffrey Gathigi
+</p>
