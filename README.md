@@ -6,7 +6,7 @@ A machine learning project to predict customer churn for SyriaTel Telecommunicat
 
 ---
 
-Table of Contents
+## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Business Problem](#business-problem)
@@ -24,7 +24,7 @@ Table of Contents
 
 ---
 
- Project Overview
+## Project Overview
 
 Customer churn is a critical challenge in the telecommunications industry, where acquiring new customers costs **5-25 times more** than retaining existing ones. This project builds a predictive model to:
 
@@ -37,7 +37,7 @@ Stakeholder: Executive Leadership Team at SyriaTel Telecommunications Company
 
 ---
 
-Business Problem
+## Business Problem
 
 SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 
@@ -46,7 +46,7 @@ SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 3. **Segment** customers by risk level for targeted interventions
 4. **Optimize** retention strategies to maximize ROI
 
-Success Criteria
+## Success Criteria
 
 - **Primary Metric**: Achieve **recall ≥ 70%** (catch most customers who will churn)
 - **Rationale**: Missing a churning customer is more costly than false alarms
@@ -54,13 +54,13 @@ Success Criteria
 
 ---
 
-Dataset
+## Dataset
 
 **Source**: SyriaTel Customer Churn Dataset  
 **Size**: 3,333 customers × 21 features  
 **Target Variable**: `churn` (True/False)
 
-Key Features
+## Key Features
 
 | Category | Features |
 |----------|----------|
@@ -69,20 +69,20 @@ Key Features
 | **Usage Patterns** | Day/evening/night/international minutes, calls, charges |
 | **Customer Service** | Number of customer service calls |
 
-Class Distribution
+## Class Distribution
 
 - **Not Churned**: 2,850 customers (85.5%)
 - **Churned**: 483 customers (14.5%)
 
 ---
-Installation
+## Installation
 
  Prerequisites
 
 - Python 3.8 or higher
 - Jupyter Notebook or JupyterLab
 
- Setup
+## Setup
 
 1. **Clone the repository**
    ```bash
@@ -106,7 +106,7 @@ Installation
    jupyter notebook
    ```
 
- Required Libraries
+## Required Libraries
 
 ```txt
 numpy>=1.21.0
@@ -119,7 +119,7 @@ jupyter>=1.0.0
 
 ---
 
-Project Structure
+## Project Structure
 
 ```
 telecom-churn-prediction/
@@ -145,7 +145,7 @@ telecom-churn-prediction/
 
 ---
 
-Methodology
+## Methodology
 
 ### 1. **Business & Data Understanding**
    - Defined business problem and success criteria
@@ -188,9 +188,9 @@ Models were evaluated using:
 
 ---
 
-Key Findings
+## Key Findings
 
-Top Churn Predictors
+### Top Churn Predictors
 
 1. **Customer Service Calls** 
    - Customers with **4+ calls** have significantly higher churn rates
@@ -212,7 +212,7 @@ Top Churn Predictors
    - International usage ratio is a strong predictor
    - Extreme usage (very high or very low) indicates risk
 
-Customer Insights
+## Customer Insights
 
 - **High-Risk Segment**: International plan holders with high service calls
 - **Low-Risk Segment**: Long-tenure customers with voice mail plans
@@ -220,9 +220,9 @@ Customer Insights
 
 ---
 
-Model Performance
+## Model Performance
 
-Model Comparison
+### Model Comparison
 
 | Model | Test Accuracy | Test Precision | **Test Recall** | Test F1-Score | Test ROC-AUC |
 |-------|---------------|----------------|-----------------|---------------|--------------|
@@ -238,7 +238,7 @@ Final Model Selection: **Decision Tree Classifier**
 -  High interpretability - easy to explain to stakeholders
 -  Strong overall performance (96.9% accuracy)
 
-Confusion Matrix (Decision Tree)
+## Confusion Matrix (Decision Tree)
 
 ```
                 Predicted
@@ -255,9 +255,9 @@ Actual Not      570       0
 
 ---
 
-Business Recommendations
+## Business Recommendations
 
-Immediate Actions (High-Risk Customers)
+### Immediate Actions (High-Risk Customers)
 
 #### 1. Customer Service Quality Improvement
 - **Finding**: Customers with 4+ service calls are at extreme risk
@@ -275,7 +275,7 @@ Immediate Actions (High-Risk Customers)
   - Proactive outreach with usage optimization tips
 - **Expected Impact**: 20% reduction in international plan churn
 
-Medium-Term Strategies (At-Risk Segments)
+## Medium-Term Strategies (At-Risk Segments)
 
 #### 3. Usage-Based Interventions
 - Monitor customers with high charges (bill shock prevention)
@@ -287,7 +287,7 @@ Medium-Term Strategies (At-Risk Segments)
 - Bundle services to increase switching costs
 - Create loyalty programs based on tenure
 
- Predictive Retention Program
+## Predictive Retention Program
 
 #### 5. Risk-Based Scoring System
 - **High Risk** (>70% churn probability): Personal call + special offers
@@ -310,7 +310,7 @@ Net Benefit: $182,000
 ROI: 182%
 ```
 
-Continuous Improvement
+## Continuous Improvement
 
 - Deploy model for monthly customer scoring
 - A/B test retention strategies
