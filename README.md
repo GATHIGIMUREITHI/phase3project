@@ -392,6 +392,10 @@ Contributors
 **Jeffrey Gathigi** - *Data Scientist*  
 - GitHub: [@GATHIGIMUREITHI](https://github.com/GATHIGIMUREITHI)
 - Instructor: Brian Chacha
+- Email: jeffrey.gathigi@student.moringaschool.com
+- LinkedIn: https://www.linkedin.com/in/jeffrey-gathigi-38a373363/
+- GitHub: https://github.com/GATHIGIMUREITHI/phase3project.git
+
 
 
 
