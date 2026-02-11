@@ -1,18 +1,12 @@
-# 📞 Telecom Customer Churn Prediction
+Telecom Customer Churn Prediction
 
-[![Python](https://img.shields.io/badge/Python-3.8%2B-blue)](https://www.python.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-orange.svg)](https://jupyter.org/)
 
 A machine learning project to predict customer churn for SyriaTel Telecommunications Company, enabling proactive retention strategies and reducing customer attrition.
 
-![Churn Prediction](https://img.shields.io/badge/Churn%20Rate-14.5%25-red)
-![Model Accuracy](https://img.shields.io/badge/Best%20Model%20Accuracy-96.9%25-success)
-![Recall Score](https://img.shields.io/badge/Recall-78.4%25-important)
 
 ---
 
-## 📋 Table of Contents
+Table of Contents
 
 - [Project Overview](#project-overview)
 - [Business Problem](#business-problem)
@@ -30,20 +24,20 @@ A machine learning project to predict customer churn for SyriaTel Telecommunicat
 
 ---
 
-## 🎯 Project Overview
+ Project Overview
 
 Customer churn is a critical challenge in the telecommunications industry, where acquiring new customers costs **5-25 times more** than retaining existing ones. This project builds a predictive model to:
 
-- ✅ Identify customers at high risk of churning before they leave
-- ✅ Understand key factors contributing to customer churn
-- ✅ Develop targeted retention strategies to reduce churn rate
-- ✅ Provide actionable insights for business stakeholders
+-  Identify customers at high risk of churning before they leave
+-  Understand key factors contributing to customer churn
+-  Develop targeted retention strategies to reduce churn rate
+-  Provide actionable insights for business stakeholders
 
-**Stakeholder**: Executive Leadership Team at SyriaTel Telecommunications Company
+Stakeholder: Executive Leadership Team at SyriaTel Telecommunications Company
 
 ---
 
-## 💼 Business Problem
+Business Problem
 
 SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 
@@ -52,7 +46,7 @@ SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 3. **Segment** customers by risk level for targeted interventions
 4. **Optimize** retention strategies to maximize ROI
 
-### Success Criteria
+Success Criteria
 
 - **Primary Metric**: Achieve **recall ≥ 70%** (catch most customers who will churn)
 - **Rationale**: Missing a churning customer is more costly than false alarms
@@ -60,13 +54,13 @@ SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 
 ---
 
-## 📊 Dataset
+Dataset
 
 **Source**: SyriaTel Customer Churn Dataset  
 **Size**: 3,333 customers × 21 features  
 **Target Variable**: `churn` (True/False)
 
-### Key Features
+Key Features
 
 | Category | Features |
 |----------|----------|
@@ -75,21 +69,20 @@ SyriaTel is experiencing customer attrition and needs a data-driven approach to:
 | **Usage Patterns** | Day/evening/night/international minutes, calls, charges |
 | **Customer Service** | Number of customer service calls |
 
-### Class Distribution
+Class Distribution
 
 - **Not Churned**: 2,850 customers (85.5%)
 - **Churned**: 483 customers (14.5%)
 
 ---
+Installation
 
-## 🛠️ Installation
-
-### Prerequisites
+ Prerequisites
 
 - Python 3.8 or higher
 - Jupyter Notebook or JupyterLab
 
-### Setup
+ Setup
 
 1. **Clone the repository**
    ```bash
@@ -113,7 +106,7 @@ SyriaTel is experiencing customer attrition and needs a data-driven approach to:
    jupyter notebook
    ```
 
-### Required Libraries
+ Required Libraries
 
 ```txt
 numpy>=1.21.0
@@ -126,7 +119,7 @@ jupyter>=1.0.0
 
 ---
 
-## 📁 Project Structure
+Project Structure
 
 ```
 telecom-churn-prediction/
@@ -152,7 +145,7 @@ telecom-churn-prediction/
 
 ---
 
-## 🔬 Methodology
+Methodology
 
 ### 1. **Business & Data Understanding**
    - Defined business problem and success criteria
@@ -195,31 +188,31 @@ Models were evaluated using:
 
 ---
 
-## 🔍 Key Findings
+Key Findings
 
-### Top Churn Predictors
+Top Churn Predictors
 
-1. **Customer Service Calls** 📞
+1. **Customer Service Calls** 
    - Customers with **4+ calls** have significantly higher churn rates
    - Indicates unresolved issues or dissatisfaction
 
-2. **International Plan** 🌍
+2. **International Plan** 
    - Customers with international plans show distinct churn patterns
    - Suggests pricing or value perception issues
 
-3. **Total Charges** 💰
+3. **Total Charges** 
    - High daily charges correlate with churn
    - Potential "bill shock" or competitor pricing advantages
 
-4. **Voice Mail Plan** ✉️
+4. **Voice Mail Plan** 
    - Customers with voice mail plans have **lower churn rates**
    - Value-added services increase retention
 
-5. **Usage Patterns** 📊
+5. **Usage Patterns** 
    - International usage ratio is a strong predictor
    - Extreme usage (very high or very low) indicates risk
 
-### Customer Insights
+Customer Insights
 
 - **High-Risk Segment**: International plan holders with high service calls
 - **Low-Risk Segment**: Long-tenure customers with voice mail plans
@@ -227,25 +220,25 @@ Models were evaluated using:
 
 ---
 
-## 📈 Model Performance
+Model Performance
 
-### Model Comparison
+Model Comparison
 
 | Model | Test Accuracy | Test Precision | **Test Recall** | Test F1-Score | Test ROC-AUC |
 |-------|---------------|----------------|-----------------|---------------|--------------|
 | Logistic Regression | 85.2% | 47.9% | **23.7%** | 31.7% | 84.1% |
-| **Decision Tree** ⭐ | **96.9%** | **100.0%** | **78.4%** | **87.9%** | 87.3% |
+| **Decision Tree**  | **96.9%** | **100.0%** | **78.4%** | **87.9%** | 87.3% |
 | Random Forest | 95.1% | 97.1% | 68.0% | 80.0% | 90.8% |
 
-### 🏆 Final Model Selection: **Decision Tree Classifier**
+Final Model Selection: **Decision Tree Classifier**
 
 **Rationale**:
-- ✅ Highest recall (78.4%) - catches most churners
-- ✅ Perfect precision (100%) - no false positives
-- ✅ High interpretability - easy to explain to stakeholders
-- ✅ Strong overall performance (96.9% accuracy)
+-  Highest recall (78.4%) - catches most churners
+-  Perfect precision (100%) - no false positives
+-  High interpretability - easy to explain to stakeholders
+-  Strong overall performance (96.9% accuracy)
 
-### Confusion Matrix (Decision Tree)
+Confusion Matrix (Decision Tree)
 
 ```
                 Predicted
@@ -262,9 +255,9 @@ Actual Not      570       0
 
 ---
 
-## 💡 Business Recommendations
+Business Recommendations
 
-### 🚨 Immediate Actions (High-Risk Customers)
+Immediate Actions (High-Risk Customers)
 
 #### 1. Customer Service Quality Improvement
 - **Finding**: Customers with 4+ service calls are at extreme risk
@@ -282,7 +275,7 @@ Actual Not      570       0
   - Proactive outreach with usage optimization tips
 - **Expected Impact**: 20% reduction in international plan churn
 
-### 📊 Medium-Term Strategies (At-Risk Segments)
+Medium-Term Strategies (At-Risk Segments)
 
 #### 3. Usage-Based Interventions
 - Monitor customers with high charges (bill shock prevention)
@@ -294,7 +287,7 @@ Actual Not      570       0
 - Bundle services to increase switching costs
 - Create loyalty programs based on tenure
 
-### 🎯 Predictive Retention Program
+ Predictive Retention Program
 
 #### 5. Risk-Based Scoring System
 - **High Risk** (>70% churn probability): Personal call + special offers
@@ -317,7 +310,7 @@ Net Benefit: $182,000
 ROI: 182%
 ```
 
-### 🔄 Continuous Improvement
+Continuous Improvement
 
 - Deploy model for monthly customer scoring
 - A/B test retention strategies
@@ -326,7 +319,7 @@ ROI: 182%
 
 ---
 
-## 🚀 Usage
+ Usage
 
 ### Running the Analysis
 
@@ -366,7 +359,7 @@ print(f"High-risk customers: {len(high_risk)}")
 
 ---
 
-## 🔮 Future Work
+Future Work
 
 ### Model Enhancements
 - [ ] Implement advanced ensemble methods (XGBoost, LightGBM)
@@ -394,7 +387,7 @@ print(f"High-risk customers: {len(high_risk)}")
 
 ---
 
-## 👥 Contributors
+Contributors
 
 **Jeffrey Gathigi** - *Data Scientist*  
 - GitHub: [@GATHIGIMUREITHI](https://github.com/GATHIGIMUREITHI)
